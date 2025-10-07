@@ -10,10 +10,11 @@ function App() {
         const stored = localStorage.getItem("moods");
         if (stored) {
             try {
-                const parsed = JSON.parse(stored); 
-                const restored = parsed.map(m => new Mood(m.fecha, m.estado, m.intensidad, m.valencia));
+                const parsed = JSON.parse(stored);
+                const restored = parsed.map(
+                    (m) => new Mood(m.fecha, m.estado, m.intensidad, m.valencia)
+                );
                 setMoods(restored);
-                console.log("moods:", restored);
             } catch (e) {
                 console.error("Error parseando moods de localStorage:", e);
             }
@@ -21,11 +22,11 @@ function App() {
     }, []);
 
     useEffect(() => {
-        const toSave = moods.map(m => ({
+        const toSave = moods.map((m) => ({
             fecha: m.fecha,
             estado: m.estado,
             intensidad: m.intensidad,
-            valencia: m.valencia
+            valencia: m.valencia,
         }));
         localStorage.setItem("moods", JSON.stringify(toSave));
     }, [moods]);
@@ -35,32 +36,31 @@ function App() {
             alert("Escribí cómo te sentís");
             return;
         }
-
         if (intensidad < 1 || intensidad > 10) {
             alert("Intensidad debe estar entre 1 y 10");
             return;
         }
-
         if (valencia < -5 || valencia > 5) {
             alert("Valencia debe estar entre -5 y 5");
             return;
         }
 
         const nuevoMood = new Mood(fecha, estado, intensidad, valencia);
-
-        setMoods(prev => {
-            const updated = [...prev, nuevoMood];
-            console.log("Añadiendo mood:", nuevoMood);
-            console.log("Moods now:", updated);
-            return updated;
-        });
+        setMoods((prev) => [...prev, nuevoMood]);
     };
 
     return (
-        <div>
-            <h1>Mood Tracker</h1>
-            <MoodForm onAddMood={handleAddMood} />
-            <MoodList moods={moods} />
+        <div className="container py-5">
+            <h1 className="text-center mb-5">Mood Tracker</h1>
+
+            <div className="row g-4">
+                <div className="col-md-6">
+                    <MoodForm onAddMood={handleAddMood} />
+                </div>
+                <div className="col-md-6">
+                    <MoodList moods={moods} />
+                </div>
+            </div>
         </div>
     );
 }
