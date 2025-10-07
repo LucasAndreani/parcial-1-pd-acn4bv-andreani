@@ -1,12 +1,12 @@
 # Mood Tracker
 
-## 1. Descripción general
+## Descripción general
 La página tiene como objetivo mantener un registro de los estados de ánimo del usuario a través del día, semana, mes o año.  
 La idea principal del proyecto es crear un mood tracker flexible, que no limite al usuario a predefinir emociones específicas, sino que permita registrar cada entrada de manera libre, para luego analizar y sacar conclusiones personales.
 
 A futuro se planea agregar gráficos que muestren la intensidad y valencia a lo largo del tiempo, así como filtros y búsqueda de registros.
 
-## 2. Primera Entrega
+## Primera Entrega
 La entrega incluye una pantalla principal donde se concentran todas las funcionalidades mínimas del parcial:
 
 - **Formulario de registro de mood**
@@ -23,15 +23,16 @@ La entrega incluye una pantalla principal donde se concentran todas las funciona
   - Los colores de los registros cambian según la valencia: verde (positivo), gris (0), rojo (negativo).
   - Cada item incluye un **botón de borrar** que solicita confirmación antes de eliminar la entrada.
 
-## 3. Flujo de uso
+## Flujo de uso
 1. El usuario abre la página y ve el formulario de registro y la lista de moods previos.
 2. Ingresa su estado de ánimo, intensidad y valencia, y hace clic en **Guardar**.
 3. El nuevo mood se agrega al historial, se almacena en `localStorage` y se muestra dinámicamente.
 4. Si el usuario desea eliminar un registro, hace clic en **Borrar**, y aparece una ventana de confirmación.
 5. Persistencia con `localStorage`
 
-## 4. Consideraciones futuras
+## Consideraciones futuras
 - Gráficos de intensidad y valencia a lo largo del tiempo.
 - Filtros por fecha, intensidad o valencia.
 - Posibilidad de editar registros existentes.
 - Mejoras esteticas y css personalizado.
+
