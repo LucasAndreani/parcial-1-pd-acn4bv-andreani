@@ -7,6 +7,6 @@ export default class Mood {
     }
 
     resumen() {
-        return `${this.fecha}: ${this.estado} (Intensidad: ${this.intesdiad}, Valencia: ${this.valencia})`;
+        return `${this.fecha}: ${this.estado} (Intensidad: ${this.intensidad}, Valencia: ${this.valencia})`;
     }
 }
