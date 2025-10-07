@@ -49,6 +49,10 @@ function App() {
         setMoods((prev) => [...prev, nuevoMood]);
     };
 
+    const handleDeleteMood = (index) => {
+      setMoods(prev => prev.filter((_, i) => i !== index));
+    }
+
     return (
         <div className="container py-5">
             <h1 className="text-center mb-5">Mood Tracker</h1>
@@ -58,7 +62,7 @@ function App() {
                     <MoodForm onAddMood={handleAddMood} />
                 </div>
                 <div className="col-md-6">
-                    <MoodList moods={moods} />
+                    <MoodList moods={moods} onDeleteMood={handleDeleteMood}/>
                 </div>
             </div>
         </div>

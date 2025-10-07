@@ -1,4 +1,4 @@
-function MoodList({ moods }) {
+function MoodList({ moods, onDeleteMood }) {
     let contenido;
 
     if (moods.length === 0) {
@@ -18,6 +18,16 @@ function MoodList({ moods }) {
                         <span className="text-secondary">
                             Intensidad: {mood.intensidad}, Valencia: {mood.valencia}
                         </span>
+                        <button
+                            className="btn btn-sm btn-outline-secondary"
+                            onClick={() => {
+                                if (window.confirm("¿Borrar este estado?")) {
+                                    onDeleteMood(index);
+                                }
+                            }}
+                        >
+                            Borrar
+                        </button>
                     </li>
                 ))}
             </ul>
